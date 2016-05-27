@@ -16,7 +16,7 @@ class V2::AyahsController < ApplicationController
         .preload(:text_tashkeel)
         .by_range(params[:surah_id], range[0], range[1])
 
-      ayahs.as_json_with_resources(ayahs, params)
+      Oj.dump(ayahs.as_json_with_resources(ayahs, params))
     end
 
     render json: response
